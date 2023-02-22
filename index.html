@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css" type="text/css">
+  <title>Portfolio</title>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="wrapper">
+      <div class="logo">
+        <a href="#"><img src="./images/logo-revou.png" alt="Revou"></a>
+      </div>
+      <div class="navbar">
+        <div class="close-nav"><button>×</button></div>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="/profile.html">Our Profile</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Message Us</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="menu-bar">
+        <button><i></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="bg-hero">
+    <h2 class="title">Hi, <p id="name"></p>. Welcome to Website</h2>
+    <p>Ini adalah website latihan pertama</p>
+  </div>
+
+  <!-- Headquarter Section -->
+  <div class="container">
+    <h2 class="title-headquarter">Our Headquarter</h2>
+    <div class="parent">
+      <div class="image">
+        <img class="image-1" src="./images/img-1.png" alt="">
+        <p>Jakarta</p>
+      </div>
+      <div class="image">
+        <img class="image-2" src="./images/img-2.png" alt="">
+        <p>Surabaya</p>
+      </div>
+      <div class="image">
+        <img class="image-3" src="./images/img-3.png" alt="">
+        <p>Bandung</p>
+      </div>
+    </div>
+  </div>
+  <!-- Message Us -->
+  <div class="form">
+    <div class="container">
+      
+      <h2 class="title-message">Message Us</h2>
+      <div style="display: flex;">
+      <div style="margin-right: 200px;">
+      <form name="message-form" onsubmit="return validateForm()">
+        Nama : <input type="text" placeholder="Nama" name="name">
+        <br />
+        <br />
+
+        Tanggal Lahir :
+        <input type="date" name="birth-date">
+        <br />
+        <br />
+
+        Jenis Kelamin :
+        <input type="radio" id="male" name="gender" value="Laki-laki" />
+        <label for="male">Laki-laki</label>
+
+        <input type="radio" id="female" name="gender" value="male" />
+        <label for="female">Perempuan</label>
+
+        <br />
+        <br />
+
+        Pesan :
+        <textarea name="message" id="message" placeholder="Pesan" cols="30" rows="1"></textarea>
+
+        <br />
+        <br />
+
+        <input type="submit" value="Submit" class="button">
+      </form>
+    </div>
+
+      <div class="form-output">
+        <p>Nama : <span id="sender-name"></span></p>
+        <p>Tanggal Lahir : <span id="sender-birth-date"></span></p>
+        <p>Jenis Kelamin : <span id="sender-gender"></span></p>
+        <p>Pesan : <span id="sender-message"></span></p>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>Created by Miskah</footer>
+</body>
+
+</html>
+
+<script>
+  const theBody = document.querySelector('body');
+  const openNav = document.querySelector('.menu-bar button');
+  const closeNav = document.querySelector('.close-nav button');
+  const Navbar = document.querySelector('.navbar');
+
+  window.addEventListener('load', () => {
+    let person = prompt('Please Enter Your Name', 'your name');
+
+    if (person != null) {
+      document.getElementById('name').innerText = person;
+    }
+  })
+
+  // function bodyScroll(){
+  // if(Navbar.classList.contains('show')){
+  // theBody.classList.add('hide-scroll');
+  // }
+  // else if(theBody.classList.contains('hide-scroll')){
+  // theBody.classList.remove('hide-scroll');
+  // }
+  // }
+
+  function validateForm() {
+    let name = document.forms["message-form"] ["name"].value;
+    let date = document.forms["message-form"] ["birth-date"].value;
+    let gender = document.forms["message-form"] ["gender"].value;
+    let message = document.forms["message-form"] ["message"].value;
+
+    if (name == "" | date == "" | gender == "" | message == "") {
+      alert("Fill required")
+      return false;
+    }
+
+    document.getElementById("sender-name").innerText = name;
+    document.getElementById("sender-birth-date").innerText = date;
+    document.getElementById("sender-gender").innerText = gender;
+    document.getElementById("sender-message").innerText = message;
+
+    return false;
+
+    document.getElementById()
+  }
+
+  function showHide() {
+    Navbar.classList.toggle('show');
+    // bodyScroll();
+  }
+
+  openNav.onclick = showHide;
+  closeNav.onclick = showHide;
+</script>
